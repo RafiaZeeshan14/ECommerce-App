@@ -1,44 +1,18 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
+import MensData from "./MensData";
+import SellerData from './BestSellerData';
+import WomensData from './WomensData';
 
 export const ProductsContext = createContext();
-
+export const useProducts = () => {
+  return useContext(ProductsContext);
+};
 export const ProductsProvider = ({ children }) => {
-  const [newProducts, setNewProducts] = useState([
-    {
-      id: 1,
-      title: "Fit Short Sleeve T-Shirt",
-      price: 109.95,
-      image: "best Seller/Black.jpeg",
-    },
-    {
-      id: 2,
-      title: "Fit Short Sleeve T-Shirt",
-      price: 109.95,
-      image: "best Seller/AGray.jpeg",
-    },
-    {
-      id: 3,
-      title: "Fit Short Sleeve T-Shirt",
-      price: 109.95,
-      image: "best Seller/NWhite.jpeg",
-    },
-    {
-      id: 4,
-      title: "Fit Short Sleeve T-Shirt",
-      price: 109.95,
-      image: "best Seller/BegGreen.jpeg",
-    },
-    {
-      id: 5,
-      title: "Fit Short Sleeve T-Shirt",
-      price: 109.95,
-      image: "best Seller/BegGreen.jpeg",
-    },
-    
-  ]);
-
+  const [sellerProducts, setSellerProducts] = useState(SellerData);
+  const [menProducts, setMenProducts] = useState(MensData);
+  const [WomenProducts, setWomenProducts] = useState(WomensData);
   return (
-    <ProductsContext.Provider value={{ newProducts, setNewProducts }}>
+    <ProductsContext.Provider value={{ sellerProducts, setSellerProducts, menProducts, setMenProducts , WomenProducts,setWomenProducts}}>
       {children}
     </ProductsContext.Provider>
   );

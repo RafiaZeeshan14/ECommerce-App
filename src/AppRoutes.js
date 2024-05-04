@@ -5,6 +5,9 @@ import Signup from './components/Auth/Signup'
 import Login from './components/Auth/Login'
 import ShoppingCart from './components/Pages/ShoppingCart'
 import ProductOverview from './components/Pages/ProductOverview'
+import BestSeller from './components/Products/BestSeller'
+import MenCollection from './components/Products/MenCollection'
+import WomenCollection from './components/Products/WomenCollection'
 
 
 const AppRoutes = () => {
@@ -18,6 +21,9 @@ const AppRoutes = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/shoppingcart' element={<ShoppingCart/>}/>
         <Route path='/productoverview' element={<ProductOverview/>}/>
+        <Route path='/bestseller' element={<BestSeller/>}/>
+        <Route path='/mencollection' element={<MenCollection/>}/>
+        <Route path='/womencollection' element={<WomenCollection/>}/>
       </Routes>
     
     </div>
