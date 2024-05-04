@@ -212,7 +212,7 @@ const Navbar = () => {
                 {/* *************** Side-Bar Code  ****************/}
                 {isSidebarOpen && (
                     <nav
-                        class="bg-white shadow-lg h-screen fixed top-0 left-0 w-[280px] py-6 px-6 font-[sans-serif] flex flex-col overflow-auto">
+                        class="bg-white shadow-lg z-10 h-screen fixed top-0 left-0 w-[280px] py-6 px-6 font-[sans-serif] flex flex-col overflow-auto">
                         <div class="flex flex-wrap items-center cursor-pointer">
                             {/* *************** Close-Btn  ****************/}
                             <button className="absolute top-3 right-3" onClick={closeSidebar}>

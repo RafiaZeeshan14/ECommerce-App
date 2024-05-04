@@ -3,7 +3,7 @@ import React from 'react'
 const NewsLetter = () => {
   return (
     <div class=' poppins-medium'>
-      <div class="bg-gradient-to-r from-gray-900 vew-gray-800 to-gray-700 text-white  p-6">
+      <div class="bg-gradient-to-r from-teal-800 vew-teal-300 to-teal-400 text-white  p-6">
       <div class="grid lg:grid-cols-2 items-center gap-16 max-w-7xl mx-auto min-h-[350px]">
         <div>
           <h3 class="text-4xl font-extrabold">Subscribe to Our Newsletter</h3>

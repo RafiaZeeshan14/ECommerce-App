@@ -11,7 +11,7 @@ const BestSeller = () => {
     return (
         <div className=' poppins-medium  px-5'> 
             <Navbar />
-            <header class="text-center py-10">
+            <header class="text-center py-16">
                 <h2 class="text-xl font-bold text-gray-900 sm:text-3xl"> Our Best Seller</h2>
             </header>
             <div className='grid grid-cols-1  sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10' >

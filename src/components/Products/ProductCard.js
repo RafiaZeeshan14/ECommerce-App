@@ -16,7 +16,8 @@ const ProductCard = () => {
     };
     return (
         <>
-            <div className='flex justify-between'>
+
+            <div className='flex justify-between '>
                 <h1 className='text-xl font-medium text-black m-6 '>
                     Our Best Seller
                 </h1>
@@ -27,7 +28,7 @@ const ProductCard = () => {
                     VIEW ALL BEST SELLER
                 </h1>
             </div>
-            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10' >
+            <div className='grid grid-cols-1 mx-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10' >
                 {displayedProducts.map(product => (
                     <div key={product.id}>
                         <div className="group relative h-[350px] w-[300px] rounded-md overflow-hidden cursor-pointer  ">

@@ -11,6 +11,8 @@ import Footer from '../Common/Footer'
 import BestSeller from '../Products/BestSeller'
 import HeroSlider from './HeroSlider'
 import NewsLetter from '../Common/NewsLetter'
+import TopCategories from './TopCategories'
+import Banner from './Banner'
 
 
 const Home = () => {
@@ -31,24 +33,26 @@ const Home = () => {
           </div>
         </div> */}
         {/* <Slider/> */}
+
+
         <HeroSlider/>
-        <div className='mx-8 bg-slate-50'>
-          <br /><br />
-          
-          <br />
-          <Scroll />
-          <hr />
-          <About />
-          
+        <br /><br /> <br />
+        <Scroll />
+        <hr />
+        <br /><br /> <br />
+          <TopCategories/>  
+          <br /><br /><br />  <br /><br />  
             <ProductCard />
         
-          <br /><br /><br /><br /><br />
+          <br /><br /><br /><br /><br /><br /><br />
+          <Banner/>
+          <br /><br /><br /><br /><br /><br />
           <Information />
           <br /><br />
-          {/* <NewsLetter/> */}
+          <NewsLetter/>
           <br /><br/>
           <Footer />
-        </div>
+     
       </div>
     </div>
   )
