@@ -1,18 +1,18 @@
 import React, { createContext, useContext, useState } from 'react';
-import MensData from "./MensData";
-import SellerData from './BestSellerData';
-import WomensData from './WomensData';
+import AllData from './AllData';
+
 
 export const ProductsContext = createContext();
 export const useProducts = () => {
   return useContext(ProductsContext);
 };
 export const ProductsProvider = ({ children }) => {
-  const [sellerProducts, setSellerProducts] = useState(SellerData);
-  const [menProducts, setMenProducts] = useState(MensData);
-  const [WomenProducts, setWomenProducts] = useState(WomensData);
+  const [sellerProducts, setSellerProducts] = useState(AllData.sellerProducts);
+  const [menProducts, setMenProducts] = useState(AllData.menProducts);
+  const [womenProducts, setWomenProducts] = useState(AllData.womenProducts);
+
   return (
-    <ProductsContext.Provider value={{ sellerProducts, setSellerProducts, menProducts, setMenProducts , WomenProducts,setWomenProducts}}>
+    <ProductsContext.Provider value={{ sellerProducts, setSellerProducts, menProducts, setMenProducts , womenProducts,setWomenProducts}}>
       {children}
     </ProductsContext.Provider>
   );

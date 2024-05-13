@@ -12,7 +12,8 @@ import BestSeller from '../Products/BestSeller'
 import HeroSlider from './HeroSlider'
 import NewsLetter from '../Common/NewsLetter'
 import TopCategories from './TopCategories'
-import Banner from './Banner'
+import Banner from '../Common/Banner'
+
 
 
 const Home = () => {
