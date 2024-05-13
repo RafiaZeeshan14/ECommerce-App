@@ -20,7 +20,7 @@ const AppRoutes = () => {
         {/* {/* <Route path='/blog' element={<BlogCard blogdata={blogs} />} /> */}
         <Route path='/login' element={<Login />} />
         <Route path='/shoppingcart' element={<ShoppingCart/>}/>
-        <Route path='/productoverview' element={<ProductOverview/>}/>
+        <Route path='/productoverview/:id' element={<ProductOverview/>}/>
         <Route path='/bestseller' element={<BestSeller/>}/>
         <Route path='/mencollection' element={<MenCollection/>}/>
         <Route path='/womencollection' element={<WomenCollection/>}/>

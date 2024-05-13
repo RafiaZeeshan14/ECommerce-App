@@ -8,6 +8,7 @@ const BestSeller = () => {
     const {sellerProducts} = useProducts()
     const [showAllProducts, setShowAllProducts] = useState(true);
     const displayedProducts = showAllProducts ? sellerProducts : sellerProducts.slice(0, 4);
+    console.log("🚀 displayedProducts:", displayedProducts)
     return (
         <div className=' poppins-medium  px-5'> 
             <Navbar />
@@ -47,14 +48,16 @@ const BestSeller = () => {
                             {/* <p className="mt-2 text-xs text-gray-900">
                     a tee—name a more iconic duo, we’ll wait. Made with an easy fit, this Relaxed Fit Short-Sleeve Graphic T-Shirt features signature graphics for an unmistakably
                     </p> */}
-                            <Link to={'/productoverview'}>
+                            <Link to={`/productoverview/${product.id}`}>
                                 <button className="mt-2 inline-flex hover:text-teal-600 cursor-pointer items-center text-xs font-semibold text-gray-600">
                                     Shop Now &rarr;
                                 </button>
                             </Link>
                         </div>
                     </div>
+                    
                 ))}
+             
             </div>
         </div>
     )

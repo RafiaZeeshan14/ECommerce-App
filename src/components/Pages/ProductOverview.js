@@ -1,13 +1,21 @@
 import React from 'react'
 import Navbar from '../Common/Navbar';
+import { useParams } from 'react-router-dom';
+import { ProductsContext, useProducts } from '../../context/ProductsContext';
 
 
 const ProductOverview = () => {
-    
-    return (
-        <>
-      <Navbar/>
-<div class="mx-auto max-w-7xl px-4 md:px-8 2xl:px-16">
+  const { id } = useParams();
+  console.log("🚀 ~ ProductOverview ~ id:", id)
+  const { sellerProducts } = useProducts();
+  console.log("🚀 ~ ProductOverview ~ sellerProducts:", sellerProducts)
+  const newArr = sellerProducts.filter((item) => item.id == id);
+  console.log("🚀 ~ ProductOverview ~ newArr:", newArr)
+  return (
+    <>
+      <Navbar />
+      {newArr.map((item) => (
+  <div class="mx-auto max-w-7xl px-4 md:px-8 2xl:px-16">
   <div class="pt-8">
     <div class="flex items-center">
       <ol class="flex w-full items-center overflow-hidden">
@@ -31,20 +39,20 @@ const ProductOverview = () => {
   </div>
   <div class="block grid-cols-9 items-start gap-x-4 pb-10 pt-7 lg:grid lg:pb-14 xl:gap-x-14 ">
     <div class="col-span-5 grid grid-cols-1 gap-2.5">
-     
+
       <div class=" transition duration-150 ease-in hover:opacity-90">
         <img
-          src="best Seller/NBlack.jpeg"
+          src={item.image}
           alt="Nike Air Max 95 By You--0"
-          class="w-full object-cover"
+          // class="w-full object-cover"
         />
       </div>
-    
+
     </div>
     <div class="col-span-4 pt-8 lg:pt-0">
       <div class="mb-7 border-b border-gray-300 pb-7">
         <h2 class="text-heading mb-3.5 text-lg font-bold md:text-xl lg:text-2xl 2xl:text-3xl">
-          Nike Air Max 95 By You
+         {item.title}
         </h2>
         <p class=" text-sm leading-6  lg:text-base lg:leading-8">
           The Nike Air Max 95 By You lets you take inspiration from the human
@@ -54,7 +62,7 @@ const ProductOverview = () => {
         </p>
         <div class="mt-5 flex items-center ">
           <div class="text-heading pr-2 text-base font-bold md:pr-0 md:text-xl lg:pr-2 lg:text-2xl 2xl:pr-0 2xl:text-4xl">
-            $40.00
+           {item.price}
           </div>
           <span class="font-segoe pl-2 text-sm text-gray-400 line-through md:text-base lg:text-lg xl:text-xl">
             $50.00
@@ -81,7 +89,7 @@ const ProductOverview = () => {
             </li>
           </ul>
         </div>
-        
+
       </div>
       <div class="space-s-4 3xl:pr-48 flex items-center gap-2 border-b border-gray-300 py-8  md:pr-32 lg:pr-12 2xl:pr-32">
         <div class="group flex h-11 flex-shrink-0 items-center justify-between overflow-hidden rounded-md border border-gray-300 md:h-12">
@@ -105,7 +113,7 @@ const ProductOverview = () => {
           Add to cart
         </button>
       </div>
-     
+
       <div class="shadow-sm ">
         <header class="flex cursor-pointer items-center justify-between border-t border-gray-300 py-5 transition-colors md:py-6">
           <h2 class="text-heading pr-2 text-sm font-semibold leading-relaxed md:text-base lg:text-lg">
@@ -124,13 +132,14 @@ const ProductOverview = () => {
           </div>
         </div>
       </div>
-     
-    
     </div>
   </div>
 </div>
-</>
-    )
+))}
+
+    </>
+  )
 }
 
 export default ProductOverview;
+  

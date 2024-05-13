@@ -57,7 +57,7 @@ const ProductCard = () => {
                                 <h1 className="text-lg font-semibold text-black">{product.title}</h1>
                                 <p className='text-gray-900 '><b>$</b>{product.price}</p>
                             </div>
-                            <Link to={'/productoverview'}>
+                            <Link to={`/productoverview/${product.id}`}>
                                 <button className="mt-2 inline-flex hover:text-teal-600 cursor-pointer items-center text-xs font-semibold text-gray-600">
                                     Shop Now &rarr;
                                 </button>
