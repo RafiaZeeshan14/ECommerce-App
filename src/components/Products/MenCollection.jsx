@@ -48,7 +48,7 @@ const MenCollection = () => {
                             {/* <p className="mt-2 text-xs text-gray-900">
                     a tee—name a more iconic duo, we’ll wait. Made with an easy fit, this Relaxed Fit Short-Sleeve Graphic T-Shirt features signature graphics for an unmistakably
                     </p> */}
-                            <Link to={'/productoverview'}>
+                            <Link to={`/productoverview/${product.id}`}>
                                 <button className="mt-2 inline-flex hover:text-teal-600 cursor-pointer items-center text-xs font-semibold text-gray-600">
                                     Shop Now &rarr;
                                 </button>

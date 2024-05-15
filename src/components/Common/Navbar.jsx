@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
 import '../../components/Components.css';
 import { MdClose, MdFilterList } from 'react-icons/md';
+import { CartContext } from '../../context/CartContext';
+import { BiLinkAlt } from 'react-icons/bi';
 
 
 // const Navbar = () => {
@@ -198,6 +200,7 @@ const Navbar = () => {
     const closeSidebar = () => {
         setIsSidebarOpen(false);
     };
+    const { state } = useContext(CartContext);
     return (
         <div>
             <section
@@ -221,7 +224,7 @@ const Navbar = () => {
                             {/* *************** Logo IN sidebar  ****************/}
                             <img src="/logo-regular.png" alt="logo" class='w-[140px] ' />
                         </div>
-                          {/* *************** Search-Box  ****************/}
+                        {/* *************** Search-Box  ****************/}
                         <div class="relative bg-gray-100 px-4 py-3 rounded-md mt-6">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="#777474f3" class="w-4 mr-4 inline" viewBox="0 0 118.783 118.783">
                                 <path
@@ -230,7 +233,7 @@ const Navbar = () => {
                             </svg>
                             <input class="text-sm text-gray-500 outline-none bg-transparent px-1 max-w-[130px]" placeholder="Search..." />
                         </div>
-                          {/* *************** Side-Bar Links ****************/}
+                        {/* *************** Side-Bar Links ****************/}
                         <ul class="space-y-4 pl-3 flex-1 mt-10">
                             <li>
                                 <Link href="" class="text-[#09998b] font-semibold text-sm flex items-center rounded-md left-0 hover:left-2 relative transition-all duration-300">
@@ -265,7 +268,7 @@ const Navbar = () => {
                         <ul class="space-y-4 pl-3 mt-5">
 
                             <li>
-                                <Link  class="text-[#09998b] font-semibold text-sm flex items-center rounded-md left-0 hover:left-2 relative transition-all duration-300">
+                                <Link class="text-[#09998b] font-semibold text-sm flex items-center rounded-md left-0 hover:left-2 relative transition-all duration-300">
 
                                     <span>Help Center</span>
                                 </Link>
@@ -303,15 +306,19 @@ const Navbar = () => {
                         </svg>
                         <span class="absolute left-auto -ml-1 top-0 rounded-full bg-black px-1 py-0 text-xs text-white">1</span>
                     </span>
-                    <span class="relative">
+                    {/* ********** Basket -Img************ */}
+                    <Link to={'/shoppingcart'} class="relative">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22px" height="23px"
                             class="cursor-pointer fill-[#009688] hover:fill-[#00897B] inline-block" viewBox="0 0 512 512">
                             <path
                                 d="M164.96 300.004h.024c.02 0 .04-.004.059-.004H437a15.003 15.003 0 0 0 14.422-10.879l60-210a15.003 15.003 0 0 0-2.445-13.152A15.006 15.006 0 0 0 497 60H130.367l-10.722-48.254A15.003 15.003 0 0 0 105 0H15C6.715 0 0 6.715 0 15s6.715 15 15 15h77.969c1.898 8.55 51.312 230.918 54.156 243.71C131.184 280.64 120 296.536 120 315c0 24.812 20.188 45 45 45h272c8.285 0 15-6.715 15-15s-6.715-15-15-15H165c-8.27 0-15-6.73-15-15 0-8.258 6.707-14.977 14.96-14.996zM477.114 90l-51.43 180H177.032l-40-180zM150 405c0 24.813 20.188 45 45 45s45-20.188 45-45-20.188-45-45-45-45 20.188-45 45zm45-15c8.27 0 15 6.73 15 15s-6.73 15-15 15-15-6.73-15-15 6.73-15 15-15zm167 15c0 24.813 20.188 45 45 45s45-20.188 45-45-20.188-45-45-45-45 20.188-45 45zm45-15c8.27 0 15 6.73 15 15s-6.73 15-15 15-15-6.73-15-15 6.73-15 15-15zm0 0"
                                 data-original="#000000"></path>
                         </svg>
-                        <span class="absolute left-auto -ml-1 top-0 rounded-full bg-black px-1 py-0 text-xs text-white">4</span>
-                    </span>
+                        {/* ********** Basket -Badge************ */}
+                        {state.totalQuantity > 0 && (
+                            <span className="absolute left-auto -ml-1 top-0 rounded-full bg-black px-1 py-0 text-xs text-white">{state.totalQuantity}</span>
+                        )}
+                    </Link>
                     <div class="relative poppins-light w-max mx-auto">
                         {/* ********** Avatar-Img************ */}
                         <div class="relative inline-block cursor-pointer mt-2" onClick={toggleDropdown}>

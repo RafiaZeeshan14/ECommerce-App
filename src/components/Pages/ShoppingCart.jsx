@@ -1,307 +1,187 @@
-import React from 'react'
+import React, { useContext, useState } from 'react';
 import Navbar from '../Common/Navbar'
-
+import { CartContext } from '../../context/CartContext';
 
 const ShoppingCart = () => {
+  const { state } = useContext(CartContext);
+    const [isShippingDropdownOpen, setIsShippingDropdownOpen] = useState(false);
+  const [isPromoDropdownOpen, setIsPromoDropdownOpen] = useState(false);
+
   return (
     <div>
        <Navbar/>
-      <div class="mx-auto max-w-7xl px-2 lg:px-0">
-  <div class="mx-auto max-w-2xl py-8 lg:max-w-7xl">
-    <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-      Your Cart
-    </h1>
-    <form class="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
-      <section
-        aria-labelledby="cart-heading"
-        class="rounded-lg bg-white lg:col-span-8"
-      >
-        <h2 id="cart-heading" class="sr-only">
-          Items in your shopping cart
-        </h2>
-        <ul role="list" class="divide-y divide-gray-200">
-          <div class="">
-            <li class="flex py-6 sm:py-6 ">
-              <div class="flex-shrink-0">
-                <img
-                  src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/54a510de-a406-41b2-8d62-7f8c587c9a7e/air-force-1-07-lv8-shoes-9KwrSk.png"
-                  alt="Nike Air Force 1 07 LV8"
-                  class="sm:h-38 sm:w-38 h-24 w-24 rounded-md object-contain object-center"
-                />
-              </div>
-              <div class="ml-4 flex flex-1 flex-col justify-between sm:ml-6">
-                <div class="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
-                  <div>
-                    <div class="flex justify-between">
-                      <h3 class="text-sm">
-                        <a href="#" class="font-semibold text-black">
-                          Nike Air Force 1 07 LV8
-                        </a>
-                      </h3>
+       <section 
+        class="poppins-medium relative z-10 after:contents-[''] after:absolute after:z-0 after:h-full xl:after:w-1/3 after:top-0 after:right-0 after:bg-gray-50">
+        <div class="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto relative z-10">
+            <div class="grid grid-cols-12">
+                <div
+                    class="col-span-12 xl:col-span-8 lg:pr-8 pt-14 pb-8 lg:py-24 w-full max-xl:max-w-3xl max-xl:mx-auto">
+                    <div class="flex items-center justify-between pb-8 border-b border-gray-300">
+                        <h2 class="font-manrope font-bold text-3xl leading-10 text-black">Shopping Cart</h2>
+                        <h2 class="font-manrope font-bold text-xl leading-8 text-gray-600">{state.cartItems.length}</h2>
                     </div>
-                    <div class="mt-1 flex text-sm">
-                      <p class="text-sm text-gray-500">Orange</p>
-                      <p class="ml-4 border-l border-gray-200 pl-4 text-sm text-gray-500">
-                        8 UK
-                      </p>
+                    <div class="grid grid-cols-12 mt-8 max-md:hidden pb-6 border-b border-gray-200">
+                        <div class="col-span-12 md:col-span-7">
+                            <p class="font-normal text-lg leading-8 text-gray-400">Product Details</p>
+                        </div>
+                        <div class="col-span-12 md:col-span-5">
+                            <div class="grid grid-cols-5">
+                                <div class="col-span-3">
+                                    <p class="font-normal text-lg leading-8 text-gray-400 text-center">Quantity</p>
+                                </div>
+                                <div class="col-span-2">
+                                    <p class="font-normal text-lg leading-8 text-gray-400 text-center">Total</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mt-1 flex items-end">
-                      <p class="text-xs font-medium text-gray-500 line-through">
-                        ₹48,900
-                      </p>
-                      <p class="text-sm font-medium text-gray-900">  ₹47,199</p>
-                        <p class="text-sm font-medium text-green-500">5% Off</p>
+                    {state.cartItems.map(item => (
+                <div key={item.id} className="flex flex-col min-[500px]:flex-row min-[500px]:items-center gap-5 py-6  border-b border-gray-200 group">
+                  <div className="w-full md:max-w-[126px]">
+                    <img src={item.image} alt={item.name} className="mx-auto" />
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-4 w-full">
+                    <div className="md:col-span-2">
+                      <div className="flex flex-col max-[500px]:items-center gap-3">
+                        <h6 className="font-semibold text-base leading-7 text-black">{item.title}</h6>
+                        <h6 className="font-normal text-base leading-7 text-gray-500">{item.category}</h6>
+                        <h6 className="font-medium text-base leading-7 text-gray-600 transition-all duration-300 group-hover:text-indigo-600">${item.price.toFixed(2)}</h6>
+                      </div>
+                    </div>
+                    <div className="flex items-center max-[500px]:justify-center h-full max-md:mt-3">
+                      <div className="flex items-center h-full">
+                        <button
+                          className="group rounded-l-xl px-5 py-[18px] border border-gray-200 flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500 hover:bg-gray-50 hover:border-gray-300 hover:shadow-gray-300 focus-within:outline-gray-300"
+                          // onClick={() => dispatch({ type: 'DECREMENT_QUANTITY', payload: item.id })}
+                        >
+                          <svg className="stroke-gray-900 transition-all duration-500 group-hover:stroke-black" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <path d="M16.5 11H5.5" stroke="" strokeWidth="1.6" strokeLinecap="round" />
+                          </svg>
+                        </button>
+                        <input type="text"
+                          className="border-y border-gray-200 outline-none text-gray-900 font-semibold text-lg w-full max-w-[73px] min-w-[60px] placeholder:text-gray-900 py-[15px]  text-center bg-transparent"
+                          value={item.quantity}
+                          readOnly
+                        />
+                        <button
+                          className="group rounded-r-xl px-5 py-[18px] border border-gray-200 flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500 hover:bg-gray-50 hover:border-gray-300 hover:shadow-gray-300 focus-within:outline-gray-300"
+                          // onClick={() => dispatch({ type: 'INCREMENT_QUANTITY', payload: item.id })}
+                        >
+                          <svg className="stroke-gray-900 transition-all duration-500 group-hover:stroke-black" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <path d="M11 5.5V16.5M16.5 11H5.5" stroke="" strokeWidth="1.6" strokeLinecap="round" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div className="flex items-center max-[500px]:justify-center md:justify-end max-md:mt-3 h-full">
+                      <p className="font-bold text-lg leading-8 text-gray-600 text-center transition-all duration-300 group-hover:text-indigo-600">${(item.price * item.quantity).toFixed(2)}</p>
                     </div>
                   </div>
                 </div>
-              </div>
-            </li>
-            <div class="mb-2 flex">
-              <div class="min-w-24 flex">
-                <button type="button" class="h-7 w-7">
-                  -
-                </button>
-                <input
-                  type="text"
-                  class="mx-1 h-7 w-9 rounded-md border text-center"
-                  value="1"
-                />
-                <button
-                  type="button"
-                  class="flex h-7 w-7 items-center justify-center"
-                >
-                  +
-                </button>
-              </div>
-              <div class="ml-6 flex text-sm">
-                <button
-                  type="button"
-                  class="flex items-center space-x-1 px-2 py-1 pl-0"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="text-red-500"
-                  >
-                    <path d="M3 6h18"></path>
-                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
-                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
-                  </svg>
-                  <span class="text-xs font-medium text-red-500">Remove</span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="">
-            <li class="flex py-6 sm:py-6 ">
-              <div class="flex-shrink-0">
-                <img
-                  src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e48d6035-bd8a-4747-9fa1-04ea596bb074/blazer-low-77-se-shoes-0w2HHV.png"
-                  alt="Nike Blazer Low 77 SE"
-                  class="sm:h-38 sm:w-38 h-24 w-24 rounded-md object-contain object-center"
-                />
-              </div>
-              <div class="ml-4 flex flex-1 flex-col justify-between sm:ml-6">
-                <div class="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
-                  <div>
-                    <div class="flex justify-between">
-                      <h3 class="text-sm">
-                        <a href="#" class="font-semibold text-black">
-                          Nike Blazer Low 77 SE
-                        </a>
-                      </h3>
+              ))}
+                   
+                    <div class="flex items-center justify-end mt-8">
+                        <button
+                            class="flex items-center px-5 py-3 rounded-full gap-2 border-none outline-0 group font-semibold text-lg leading-8 text-teal-600 shadow-sm shadow-transparent transition-all duration-500 hover:text-teal-700">
+                            Add Coupon Code
+                            <svg class="transition-all duration-500 group-hover:translate-x-2" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22"
+                                fill="none">
+                                <path
+                                    d="M12.7757 5.5L18.3319 11.0562M18.3319 11.0562L12.7757 16.6125M18.3319 11.0562L1.83203 11.0562"
+                                    stroke="#00796B" stroke-width="1.6" stroke-linecap="round" />
+                            </svg>
+                        </button>
                     </div>
-                    <div class="mt-1 flex text-sm">
-                      <p class="text-sm text-gray-500">White</p>
-                      <p class="ml-4 border-l border-gray-200 pl-4 text-sm text-gray-500">
-                        8 UK
-                      </p>
-                    </div>
-                    <div class="mt-1 flex items-end">
-                      <p class="text-xs font-medium text-gray-500 line-through">
-                        ₹2,499
-                      </p>
-                      <p class="text-sm font-medium text-gray-900">  ₹1,549</p>
-                        
-                      <p class="text-sm font-medium text-green-500">38% off</p>
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </li>
-            <div class="mb-2 flex">
-              <div class="min-w-24 flex">
-                <button type="button" class="h-7 w-7">
-                  -
-                </button>
-                <input
-                  type="text"
-                  class="mx-1 h-7 w-9 rounded-md border text-center"
-                  value="1"
-                />
-                <button
-                  type="button"
-                  class="flex h-7 w-7 items-center justify-center"
-                >
-                  +
-                </button>
-              </div>
-              <div class="ml-6 flex text-sm">
-                <button
-                  type="button"
-                  class="flex items-center space-x-1 px-2 py-1 pl-0"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="text-red-500"
-                  >
-                    <path d="M3 6h18"></path>
-                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
-                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
-                  </svg>
-                  <span class="text-xs font-medium text-red-500">Remove</span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="">
-            <li class="flex py-6 sm:py-6 ">
-              <div class="flex-shrink-0">
-                <img
-                  src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd17b420-b388-4c8a-aaaa-e0a98ddf175f/dunk-high-retro-shoe-DdRmMZ.png"
-                  alt="Nike Air Max 90"
-                  class="sm:h-38 sm:w-38 h-24 w-24 rounded-md object-contain object-center"
-                />
-              </div>
-              <div class="ml-4 flex flex-1 flex-col justify-between sm:ml-6">
-                <div class="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
-                  <div>
-                    <div class="flex justify-between">
-                      <h3 class="text-sm">
-                        <a href="#" class="font-semibold text-black">
-                          Nike Air Max 90
-                        </a>
-                      </h3>
-                    </div>
-                    <div class="mt-1 flex text-sm">
-                      <p class="text-sm text-gray-500">Black</p>
-                    </div>
-                    <div class="mt-1 flex items-end">
-                      <p class="text-xs font-medium text-gray-500 line-through">
-                        ₹999
-                      </p>
-                      <p class="text-sm font-medium text-gray-900">  ₹2219 </p>
-                        
-                      <p class="text-sm font-medium text-green-500">78% off</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <div class="mb-2 flex">
-              <div class="min-w-24 flex">
-                <button type="button" class="h-7 w-7">
-                  -
-                </button>
-                <input
-                  type="text"
-                  class="mx-1 h-7 w-9 rounded-md border text-center"
-                  value="1"
-                />
-                <button
-                  type="button"
-                  class="flex h-7 w-7 items-center justify-center"
-                >
-                  +
-                </button>
-              </div>
-              <div class="ml-6 flex text-sm">
-                <button
-                  type="button"
-                  class="flex items-center space-x-1 px-2 py-1 pl-0"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="text-red-500"
-                  >
-                    <path d="M3 6h18"></path>
-                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
-                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
-                  </svg>
-                  <span class="text-xs font-medium text-red-500">Remove</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </ul>
-      </section>
-      <section
-        aria-labelledby="summary-heading"
-        class="mt-16 rounded-md bg-white lg:col-span-4 lg:mt-0 lg:p-0"
-      >
-        <h2
-          id="summary-heading"
-          class=" border-b border-gray-200 px-4 py-3 text-lg font-medium text-gray-900 sm:p-4"
-        >
-          Price Details
-        </h2>
-        <div>
-          <dl class=" space-y-1 px-2 py-4">
-            <div class="flex items-center justify-between">
-              <dt class="text-sm text-gray-800">Price (3 item)</dt>
-              <dd class="text-sm font-medium text-gray-900">₹ 52,398</dd>
-            </div>
-            <div class="flex items-center justify-between pt-4">
-              <dt class="flex items-center text-sm text-gray-800">
-                <span>Discount</span>
-              </dt>
-              <dd class="text-sm font-medium text-green-700">- ₹ 3,431</dd>
-            </div>
-            <div class="flex items-center justify-between py-4">
-              <dt class="flex text-sm text-gray-800">
-                <span>Delivery Charges</span>
-              </dt>
-              <dd class="text-sm font-medium text-green-700">Free</dd>
-            </div>
-            <div class="flex items-center justify-between border-y border-dashed py-4 ">
-              <dt class="text-base font-medium text-gray-900">Total Amount</dt>
-              <dd class="text-base font-medium text-gray-900">₹ 48,967</dd>
-            </div>
-          </dl>
-          <div class="px-2 pb-4 font-medium text-green-700">
-            You will save ₹ 3,431 on this order
-          </div>
-        </div>
-      </section>
-    </form>
-  </div>
-</div>
+                <div
+                    class=" col-span-12 xl:col-span-4 bg-gray-50 w-full max-xl:px-6 max-w-3xl xl:max-w-lg mx-auto lg:pl-8 py-24">
+                    <h2 class="font-manrope font-bold text-3xl leading-10 text-black pb-8 border-b border-gray-300">
+                        Order Summary</h2>
+                    <div class="mt-8">
+                        <div class="flex items-center justify-between pb-6">
+                            <p class="font-normal text-lg leading-8 text-black">{state.cartItems.length} Items </p>
+                            <p class="font-medium text-lg leading-8 text-teal-700">${state.cartItems.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2)}</p>
+                        </div>
+                        <form>
+                            <label class="flex  items-center mb-1.5 text-gray-600 text-sm font-medium">Shipping
+                            </label>
+                            <div class="flex pb-6">
+                                <div class="relative w-full">
+                                    <div class=" absolute left-0 top-0 py-3 px-4">
+                                        <span class="font-normal text-base text-gray-300">Second Delivery</span>
+                                    </div>
+                                    <input type="text"
+                                        class="block w-full h-11 pr-10 pl-36 min-[500px]:pl-52 py-2.5 text-base font-normal shadow-xs text-gray-900 bg-white border border-gray-300 rounded-lg placeholder-gray-400 focus:outline-gray-400"
+                                        placeholder="$5.00"/>
+                                    <button id="dropdown-button"  onClick={() => setIsShippingDropdownOpen(!isShippingDropdownOpen)} data-target="dropdown-delivery"
+                                        class="dropdown-toggle flex-shrink-0 z-10 inline-flex items-center py-4 px-4 text-base font-medium text-center text-gray-900 bg-transparent  absolute right-0 top-0 pl-2 "
+                                        type="button">
+                                        <svg class="ml-2 my-auto" width="12" height="7" viewBox="0 0 12 7"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M1 1.5L4.58578 5.08578C5.25245 5.75245 5.58579 6.08579 6 6.08579C6.41421 6.08579 6.74755 5.75245 7.41421 5.08579L11 1.5"
+                                                stroke="#6B7280" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                        </svg>
+                                    </button>
+                                    <div id="dropdown-delivery" aria-labelledby="dropdown-delivery"
+                                        class="z-20 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute top-10  right-0">
+                                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                                            aria-labelledby="dropdown-button">
+                                            <li>
+                                                <a href="#"
+                                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Shopping</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Images</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">News</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"
+                                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Finance</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="flex items-center mb-1.5 text-gray-400 text-sm font-medium">Promo Code
+                            </label>
+                            <div class="flex pb-4 w-full">
+                                <div class="relative w-full ">
+                                    <div class=" absolute left-0 top-0 py-2.5 px-4 text-gray-300">
 
+                                    </div>
+                                    <input type="text"
+                                        class="block w-full h-11 pr-11 pl-5 py-2.5 text-base font-normal shadow-xs text-gray-900 bg-white border border-gray-300 rounded-lg placeholder-gray-500 focus:outline-gray-400 "
+                                        placeholder="xxxx xxxx xxxx"/>
+                                  
+                                </div>
+                            </div>
+                            <div class="flex items-center border-b border-gray-200 py-4 ">
+                                <button
+                                    class="rounded-lg w-full bg-black py-2.5 px-4 text-white text-sm font-semibold text-center mb-8 transition-all duration-500 hover:bg-black/80">Apply</button>
+                            </div>
+                            <div class="flex items-center justify-between py-8">
+                                <p class="font-medium text-xl leading-8 text-black">{state.cartItems.length} Items</p>
+                                <p class="font-semibold text-xl leading-8 text-teal-700">${state.cartItems.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2)}</p>
+                            </div>
+                            <button class="w-full text-center bg-gradient-to-r from-teal-700 to-teal-400 rounded-xl py-3 px-6 font-semibold text-lg text-white transition-all duration-500 hover:bg-teal-900 hover:bg-opacity-80 hover:shadow-xl">Checkout</button>
+   </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                                            
     </div>
   )
 }
 
 export default ShoppingCart
+
+
+

@@ -1,20 +1,36 @@
 import React from 'react'
 import Navbar from '../Common/Navbar';
 import { useParams } from 'react-router-dom';
-import { ProductsContext, useProducts } from '../../context/ProductsContext';
+import {  useProducts } from '../../context/ProductsContext';
+import { CartContext } from '../../context/CartContext';
 
 
 const ProductOverview = () => {
   const { id } = useParams();
   console.log("🚀 ~ ProductOverview ~ id:", id)
-  const { sellerProducts } = useProducts();
-  console.log("🚀 ~ ProductOverview ~ sellerProducts:", sellerProducts)
-  const newArr = sellerProducts.filter((item) => item.id == id);
-  console.log("🚀 ~ ProductOverview ~ newArr:", newArr)
+  // const { sellerProducts } = useProducts();
+  // console.log("🚀 ~ ProductOverview ~ sellerProducts:", sellerProducts)
+  // const newArr = sellerProducts.filter((item) => item.id == id);
+  // console.log("🚀 ~ ProductOverview ~ newArr:", newArr)
+
+  const { sellerProducts, menProducts, womenProducts } = useProducts();
+
+  // Combine all products into a single array
+  const allProducts = [...sellerProducts, ...menProducts, ...womenProducts];
+
+  // Filter the product based on the id
+  const product = allProducts.filter((item) => item.id == id);
+
+
+    const { dispatch } = React.useContext(CartContext); 
+
+    const handleAddToCart = (item) => {
+      dispatch({ type: 'ADD_TO_CART', payload: item });
+    };
   return (
     <>
       <Navbar />
-      {newArr.map((item) => (
+      {product.map((item) => (
   <div class="mx-auto max-w-7xl px-4 md:px-8 2xl:px-16">
   <div class="pt-8">
     <div class="flex items-center">
@@ -109,7 +125,8 @@ const ProductOverview = () => {
         <button
           type="button"
           class="h-11 w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-        >
+          onClick={() => handleAddToCart(item)}
+       >
           Add to cart
         </button>
       </div>
