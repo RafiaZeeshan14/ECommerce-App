@@ -19,7 +19,7 @@ import Banner from '../Common/Banner'
 const Home = () => {
   return (
     <div className=''>
-      <div className=' poppins-medium '>
+      <div className=' poppins-medium bg-[#ffffff]'>
         {/* <Navbar /> */}
         {/* <div class="relative bg-gradient-to-r from-purple-600 to-blue-600 h-screen text-white overflow-hidden">
           <div class="absolute inset-0 bg-cover">

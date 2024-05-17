@@ -131,7 +131,7 @@ const HeroSlider = () => {
                 <button className="rounded bg-blue-600 px-3 py-2 text-white transition hover:bg-blue-700"> Sign Up </button>
               </nav> */}
                {/* <div className="absolute inset-0 border-b-2 border-black bg-black opacity-10"></div> */}
-              <Navbar />
+               <Navbar backgroundColor="#eeeeee" />
             </div>
             <div >
               {/* Video Slide */}

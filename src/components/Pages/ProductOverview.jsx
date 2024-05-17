@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from '../Common/Navbar';
 import { useParams } from 'react-router-dom';
 import { useProducts } from '../../context/ProductsContext';
@@ -28,13 +28,15 @@ const ProductOverview = () => {
   const handleAddToCart = (item) => {
     dispatch({ type: 'ADD_TO_CART', payload: item });
   };
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to the top of the page when the component mounts
+}, []);
   return (
     <>
-      <Navbar />
+      <Navbar backgroundColor="#eeeeee" />
       {product.map((item) => (
-        <div class="poppins-medium mx-auto max-w-7xl px-4 md:px-8 2xl:px-16 pt-20">
-        
-          <div class="block grid-cols-9 items-start lg:gap-x-2 md:gap-x-5 pb-10 pt-7 md:grid lg:pb-10 ">
+        <div class="poppins-medium mx-auto  max-w-7xl px-4 md:px-8 2xl:px-16 mt-40">      
+          <div class="block grid-cols-9 items-start lg:gap-x-2 md:gap-x-5 pb-10 pt-7 md:grid lg:pb-4 ">
             <div class="col-span-5 grid grid-cols-1 gap-2.5">
               <div class=" transition duration-150 flex justify-center ease-in hover:opacity-90">
                 <img
