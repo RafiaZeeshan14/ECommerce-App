@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Navbar from '../Common/Navbar'
 import { ProductsContext, useProducts } from '../../context/ProductsContext';
 import { Link } from 'react-router-dom';
@@ -9,6 +9,10 @@ const BestSeller = () => {
     const [showAllProducts, setShowAllProducts] = useState(true);
     const displayedProducts = showAllProducts ? sellerProducts : sellerProducts.slice(0, 4);
     console.log("🚀 displayedProducts:", displayedProducts)
+    useEffect(() => {
+        window.scrollTo(0, 0); // Scroll to the top of the page when the component mounts
+    }, []);
+
     return (
         <div className=' poppins-medium  px-5'> 
             <Navbar />
