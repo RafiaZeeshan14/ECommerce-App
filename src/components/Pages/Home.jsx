@@ -13,6 +13,7 @@ import HeroSlider from './HeroSlider'
 import NewsLetter from '../Common/NewsLetter'
 import TopCategories from './TopCategories'
 import Banner from '../Common/Banner'
+import ShippingBanner from '../Common/ShippingBanner'
 
 
 
@@ -36,24 +37,27 @@ const Home = () => {
         {/* <Slider/> */}
 
 
-        <HeroSlider/>
+        <HeroSlider />
         <br /><br /> <br />
         <Scroll />
         <hr />
-        <br /><br /> <br />
-          <TopCategories/>  
-          <br /><br /><br />  <br /><br />  
-            <ProductCard />
-        
-          <br /><br /><br /><br /><br /><br /><br />
-          <Banner/>
-          <br /><br /><br /><br /><br /><br />
-          <Information />
-          <br /><br />
-          <NewsLetter/>
-          <br /><br/>
-          <Footer />
-     
+        <br />
+        <ShippingBanner/>
+        <br />
+      
+        <TopCategories />
+        <br /><br /><br />  <br /><br />
+        <ProductCard />
+
+        <br /><br /><br /><br /><br /><br /><br />
+        <Banner />
+        <br /><br /><br /><br /><br /><br />
+        <Information />
+        <br /><br />
+        <NewsLetter />
+        <br /><br />
+        <Footer />
+
       </div>
     </div>
   )
