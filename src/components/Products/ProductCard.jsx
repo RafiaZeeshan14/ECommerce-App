@@ -18,19 +18,19 @@ const ProductCard = () => {
         <>
 
             <div className='flex justify-between '>
-                <h1 className='text-xl font-medium text-black m-6 '>
+                <h1 className='sm:text-xl text-md font-medium text-black m-6 '>
                     Our Best Seller
                 </h1>
                 <h1
-                    className='text-md font-medium text-black m-6 hover:text-teal-600 cursor-pointer'
+                    className='sm:text-md lg:text-lg text-xs font-medium text-black m-6 hover:text-teal-600 cursor-pointer'
                     onClick={handleClick}
                 >
                     VIEW ALL BEST SELLER
                 </h1>
             </div>
-            <div className='grid grid-cols-1 mx-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10' >
+            <div className='grid grid-cols-1 justify-items-center px-4  sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10' >
                 {displayedProducts.map(product => (
-                    <div key={product.id}>
+                    <div key={product.id} >
                         <div className="group relative h-[350px] w-[300px] rounded-md overflow-hidden cursor-pointer  ">
                             <img
                                 src={product.image}
@@ -52,7 +52,7 @@ const ProductCard = () => {
                                 </button>
                             </div>
                         </div>
-                        <div className=" bottom-4 left-4 text-left max-w-64 mt-5">
+                        <div className=" bottom-4 left-4 text-left max-w-68 mt-5">
                             <div className='flex justify-between '>
                                 <h1 className="text-lg font-semibold text-black">{product.title}</h1>
                                 <p className='text-gray-900 '><b>$</b>{product.price}</p>

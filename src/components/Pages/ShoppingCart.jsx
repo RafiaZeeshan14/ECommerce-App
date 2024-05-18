@@ -17,10 +17,10 @@ const ShoppingCart = () => {
     };
     return (
         <div>
-            <Navbar />
+            <Navbar backgroundColor="#eeeeee" />
             <section
-                class="poppins-medium relative z-10 after:contents-[''] after:absolute after:z-0 after:h-full xl:after:w-1/3 after:top-0 after:right-0 after:bg-gray-50">
-                <div class="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto relative z-10">
+                class="poppins-medium relative mt-36 after:contents-[''] after:absolute after:z-0 after:h-full xl:after:w-1/3 after:top-0 after:right-0 after:bg-gray-50">
+                <div class="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto relative ">
                     <div class="grid grid-cols-12">
                         <div
                             class="col-span-12 xl:col-span-8 lg:pr-8 pt-14 pb-8 lg:py-24 w-full max-xl:max-w-3xl max-xl:mx-auto">
@@ -124,7 +124,7 @@ const ShoppingCart = () => {
                             </div>
                         </div>
                         <div
-                            class=" col-span-12 xl:col-span-4 bg-gray-50 w-full max-xl:px-6 max-w-3xl xl:max-w-lg mx-auto lg:pl-8 py-24">
+                            class=" col-span-12 xl:col-span-4 z-10  bg-gray-50 w-full max-xl:px-6 max-w-3xl xl:max-w-lg mx-auto lg:pl-8 py-24">
                             <h2 class="font-manrope font-bold text-3xl leading-10 text-black pb-8 border-b border-gray-300">
                                 Order Summary</h2>
                             <div class="mt-8">

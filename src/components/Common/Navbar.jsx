@@ -39,15 +39,16 @@ const Navbar = ({backgroundColor}) => {
     return (
         <div>
             <section
-                className={`flex z-10 items-center flex-wrap justify-center gap-4 py-3 sm:px-10 px-4 min-h-[70px] fixed top-0 left-0 right-0 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+                className={`flex z-20 items-center flex-wrap justify-center gap-4 py-3 sm:px-10 px-4 min-h-[70px] fixed top-0 left-0 right-0 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
                     }`}
                 style={{ backgroundColor: isScrolled ? backgroundColor : 'transparent' }}
             >
                 {/* *************** Side-Bar Logo  ****************/}
                 {!isSidebarOpen && (
-                    <div className='left-10 absolute z-50 px-4 py-3' onClick={toggleSidebar}>
-                        <MdFilterList style={{ width: '2em', cursor: 'pointer', height: '2em' }} className='fill-[#09998b]' />
+                    <div className='left-0 sm:left-10 absolute z-50 px-4 py-3' onClick={toggleSidebar}>
+                        <MdFilterList className='fill-[#09998b] w-8 h-8  cursor-pointer' />
                     </div>
+                    // style={{ width: '2em', cursor: 'pointer', height: '2em' }} 
                 )}
                 {/* *************** Side-Bar Code  ****************/}
                 {isSidebarOpen && (
@@ -56,10 +57,10 @@ const Navbar = ({backgroundColor}) => {
                         <div class="flex flex-wrap items-center cursor-pointer">
                             {/* *************** Close-Btn  ****************/}
                             <button className="absolute top-3 right-3" onClick={closeSidebar}>
-                                <MdClose style={{ width: '1.5em', height: '1.5em' }} className='fill-[#777474f3]' />
+                                <MdClose style={{ width: '1.5em', height: '1.5em' }} className='fill-[#777474f3] ' />
                             </button>
                             {/* *************** Logo IN sidebar  ****************/}
-                            <img src="/logo-regular.png" alt="logo" class='w-[140px] ' />
+                            <img src="/logo-regular.png" alt="logo" class='w-[140px] sm:' />
                         </div>
                         {/* *************** Search-Box  ****************/}
                         <div class="relative bg-gray-100 px-4 py-3 rounded-md mt-6">
@@ -129,7 +130,7 @@ const Navbar = ({backgroundColor}) => {
                 )}
                 {/* ***************** Brand-Logo ************* */}
                 <a href="/" className="shrink-0  md:text-center">
-                    <img src="/logo-regular.png" alt="logo" className='ml-[60%] md:w-[170px] w-36 sm:ml-[70%] lg:ml-0 ' />
+                    <img src="/logo-regular.png" alt="logo" className='ml-[65%] md:w-[170px] w-24 sm:w-36 sm:ml-[70%] lg:ml-0 ' />
                 </a>
 
 
