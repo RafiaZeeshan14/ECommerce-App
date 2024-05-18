@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Navbar from '../Common/Navbar'
 import { CartContext } from '../../context/CartContext';
 import { AiOutlineDelete } from 'react-icons/ai';
+import Footer from '../Common/Footer';
 
 const ShoppingCart = () => {
     const { state, dispatch } = useContext(CartContext);
@@ -86,7 +87,7 @@ const ShoppingCart = () => {
                                                 <button
                                                     class="text-heading hover:bg-heading flex cursor-pointer h-full w-10 flex-shrink-0 items-center justify-center border-e border-gray-300 transition duration-300 ease-in-out focus:outline-none md:w-12"
                                                     onClick={() => incrementQuantity(item.id)}
-                                                   
+
                                                 >
                                                     +
                                                 </button>
@@ -98,7 +99,7 @@ const ShoppingCart = () => {
                                                     -
                                                 </button>
                                             </div>
-                                           
+
                                         </div>
                                         <div className="flex items-center max-[500px]:justify-center md:justify-end max-md:mt-3 h-full">
                                             <p className="font-bold text-lg leading-8 text-gray-600 text-center transition-all duration-300 group-hover:text-teal-600">${(item.price * item.quantity).toFixed(2)}</p>
@@ -173,7 +174,7 @@ const ShoppingCart = () => {
                     </div>
                 </div>
             </section>
-
+            <Footer />
         </div>
     )
 }

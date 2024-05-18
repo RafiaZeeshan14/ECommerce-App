@@ -19,7 +19,7 @@ const WomenCollection = () => {
                     <header className="text-center mt-40">
                         <h2 className="text-xl font-bold text-gray-900 sm:text-3xl pb-12">Women's Collection</h2>
                     </header>
-                    <div className='grid grid-cols-1  sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10' >
+                    <div className='grid grid-cols-1 justify-items-center   sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10' >
                         {womenProducts.map(product => (
                             <div key={product.id}>
                                 <div className="group relative h-[350px] w-[300px] rounded-md overflow-hidden cursor-pointer  ">
