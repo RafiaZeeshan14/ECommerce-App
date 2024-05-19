@@ -4,16 +4,16 @@ import Signup from '../Auth/Signup'
 import Scroll from '../Scroll/Scroll'
 import About from './About'
 import '../Components.css';
-import Information from './Collection'
-import ProductCard from '../Products/ProductCard'
+import Information from './ShopCollection'
+import ProductCard from '../ProductsPages/ProductCard'
 import { ProductsProvider } from '../../context/ProductsContext'
 import Footer from '../Common/Footer'
-import BestSeller from '../Products/BestSeller'
-import HeroSlider from './HeroSlider'
+import BestSeller from '../ProductsPages/BestSeller'
 import NewsLetter from '../Common/NewsLetter'
 import TopCategories from './TopCategories'
 import Banner from '../Common/Banner'
 import ShippingBanner from '../Common/ShippingBanner'
+import HeroSection from './HeroSection'
 
 
 
@@ -37,7 +37,7 @@ const Home = () => {
         {/* <Slider/> */}
 
 
-        <HeroSlider />
+        <HeroSection />
         <br /><br /> <br />
         <Scroll />
         <hr />

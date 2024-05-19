@@ -4,10 +4,10 @@ import Home from './components/Pages/Home'
 import Signup from './components/Auth/Signup'
 import Login from './components/Auth/Login'
 import ShoppingCart from './components/Pages/ShoppingCart'
-import ProductOverview from './components/Pages/ProductOverview'
-import BestSeller from './components/Products/BestSeller'
-import MenCollection from './components/Products/MenCollection'
-import WomenCollection from './components/Products/WomenCollection'
+import BestSeller from './components/ProductsPages/BestSeller'
+import MenCollection from './components/ProductsPages/MenCollection'
+import WomenCollection from './components/ProductsPages/WomenCollection'
+import ProductOverview from './components/ProductsPages/ProductOverview'
 
 
 const AppRoutes = () => {
