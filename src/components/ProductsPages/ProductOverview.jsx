@@ -30,19 +30,22 @@ const ProductOverview = () => {
   };
   useEffect(() => {
     window.scrollTo(0, 0); // Scroll to the top of the page when the component mounts
-}, []);
+  }, []);
   return (
     <>
       <Navbar backgroundColor="#eeeeee" />
+      <header className="  poppins-medium text-center mt-40">
+        <h2 className="text-xl font-bold text-gray-900 sm:text-3xl pb-12">Product Overview</h2>
+      </header>
       {product.map((item) => (
-        <div class="poppins-medium mx-auto  max-w-7xl px-4 md:px-8 2xl:px-16 mt-40">      
+        <div class="poppins-medium mx-auto  max-w-7xl px-4 md:px-8 2xl:px-16 mt-15">
           <div class="block grid-cols-9 items-start lg:gap-x-2 md:gap-x-5 pb-10 pt-7 md:grid lg:pb-4 ">
             <div class="col-span-5 grid grid-cols-1 gap-2.5">
               <div class=" transition duration-150 flex justify-center ease-in hover:opacity-90">
                 <img
                   src={item.image}
                   alt="Nike Air Max 95 By You--0"
-                class="md:h-auto lg:h-4/5 w-auto mt-8 lg:mt-0"
+                  class="md:h-auto lg:h-4/5 w-auto mt-8 lg:mt-0"
                 />
               </div>
             </div>
@@ -135,7 +138,7 @@ const ProductOverview = () => {
           </div>
         </div>
       ))}
-      <Footer/>
+      <Footer />
     </>
   )
 }

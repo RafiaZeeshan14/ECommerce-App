@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../../components/Components.css';
 import { MdClose, MdFilterList } from 'react-icons/md';
 import { CartContext } from '../../context/CartContext';
@@ -9,11 +9,18 @@ const Navbar = ({backgroundColor}) => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-
+    const location = useLocation();
+    const navigate = useNavigate();
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
     };
-
+    const handleSidebarClick = () => {
+        if (location.pathname === '/') {
+            setIsSidebarOpen(!isSidebarOpen);
+        } else {
+            navigate('/');
+        }
+    };
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
@@ -45,7 +52,7 @@ const Navbar = ({backgroundColor}) => {
             >
                 {/* *************** Side-Bar Logo  ****************/}
                 {!isSidebarOpen && (
-                    <div className='left-0 sm:left-10 absolute z-50 px-4 py-3' onClick={toggleSidebar}>
+                    <div className='left-0 sm:left-10 absolute z-50 px-4 py-3' onClick={handleSidebarClick}>
                         <MdFilterList className='fill-[#09998b] w-8 h-8  cursor-pointer' />
                     </div>
                     // style={{ width: '2em', cursor: 'pointer', height: '2em' }} 
