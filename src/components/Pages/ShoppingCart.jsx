@@ -29,89 +29,70 @@ const ShoppingCart = () => {
                                 <h2 class="font-manrope font-bold text-3xl leading-10 text-black ">Shopping Cart</h2>
                                 <h2 class="font-manrope font-bold text-xl leading-8 text-gray-600">{state.cartItems.length}</h2>
                             </div>
-                            <div class="grid grid-cols-12 mt-8 max-md:hidden pb-6 border-b border-gray-200">
-                                <div class="col-span-12 md:col-span-7">
-                                    <p class="font-normal text-lg leading-8 text-gray-400 teachers-FONT">Product Details</p>
+                            {state.cartItems.length === 0 ? (
+                                <div className="text-center py-8">
+                                    <p className="text-lg text-gray-500">Your cart is empty</p>
                                 </div>
-                                <div class="col-span-12 md:col-span-5">
-                                    <div class="grid grid-cols-5">
-                                        <div class="col-span-3">
-                                            <p class="font-normal text-lg leading-8 text-gray-400 text-center teachers-FONT">Quantity</p>
+                            ) : (
+                                <>
+                                    <div class="grid grid-cols-12 mt-8 max-md:hidden pb-6 border-b border-gray-200">
+                                        <div class="col-span-12 md:col-span-7">
+                                            <p class="font-normal text-lg leading-8 text-gray-400 teachers-FONT">Product Details</p>
                                         </div>
-                                        <div class="col-span-2">
-                                            <p class="font-normal text-lg leading-8 text-gray-400 text-center teachers-FONT">Total</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {state.cartItems.map(item => (
-                                <div key={item.id} className="flex flex-col min-[500px]:flex-row min-[500px]:items-center gap-5 py-6  border-b border-gray-200 group">
-                                    <div className="w-full md:max-w-[126px]">
-                                        <img src={item.image} alt={item.name} className="mx-auto" />
-                                    </div>
-                                    <div className="grid grid-cols-1 md:grid-cols-4 w-full">
-                                        <div className="md:col-span-2">
-                                            <div className="flex flex-col max-[500px]:items-center gap-3">
-                                                <h6 className="font-semibold text-base leading-7 text-black">{item.title}</h6>
-                                                <h6 className="font-normal text-base leading-7 text-gray-500">{item.category}</h6>
-                                                <h6 className="font-medium text-base leading-7 text-gray-600 transition-all duration-300 group-hover:text-teal-600">${item.price.toFixed(2)}</h6>
+                                        <div class="col-span-12 md:col-span-5">
+                                            <div class="grid grid-cols-5">
+                                                <div class="col-span-3">
+                                                    <p class="font-normal text-lg leading-8 text-gray-400 text-center teachers-FONT">Quantity</p>
+                                                </div>
+                                                <div class="col-span-2">
+                                                    <p class="font-normal text-lg leading-8 text-gray-400 text-center teachers-FONT">Total</p>
+                                                </div>
                                             </div>
                                         </div>
-                                        {/* <div className="flex items-center max-[500px]:justify-center h-full max-md:mt-3">
-                      <div className="flex items-center h-full">
-                        <button
-                          className="group rounded-l-xl px-5 py-[18px] border border-gray-200 flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500 hover:bg-gray-50 hover:border-gray-300 hover:shadow-gray-300 focus-within:outline-gray-300"
-                          // onClick={() => dispatch({ type: 'DECREMENT_QUANTITY', payload: item.id })}
-                        >
-                          <svg className="stroke-gray-900 transition-all duration-500 group-hover:stroke-black" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-                            <path d="M16.5 11H5.5" stroke="" strokeWidth="1.6" strokeLinecap="round" />
-                          </svg>
-                        </button>
-                        <input type="text"
-                          className="border-y border-gray-200 outline-none text-gray-900 font-semibold text-lg w-full max-w-[73px] min-w-[60px] placeholder:text-gray-900 py-[15px]  text-center bg-transparent"
-                          value={item.quantity}
-                          readOnly
-                        />
-                        <button
-                          className="group rounded-r-xl px-5 py-[18px] border border-gray-200 flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500 hover:bg-gray-50 hover:border-gray-300 hover:shadow-gray-300 focus-within:outline-gray-300"
-                          // onClick={() => dispatch({ type: 'INCREMENT_QUANTITY', payload: item.id })}
-                        >
-                          <svg className="stroke-gray-900 transition-all duration-500 group-hover:stroke-black" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-                            <path d="M11 5.5V16.5M16.5 11H5.5" stroke="" strokeWidth="1.6" strokeLinecap="round" />
-                          </svg>
-                        </button>
-                      </div>
-                    </div> */}
-                                        <div class=" flex items-center max-[500px]:justify-center h-full max-md:mt-3">
-                                            <div class="group flex h-11 flex-shrink-0 items-center justify-between overflow-hidden rounded-md border border-gray-300 md:h-12">
-                                                <button
-                                                    class="text-heading hover:bg-heading flex cursor-pointer h-full w-10 flex-shrink-0 items-center justify-center border-e border-gray-300 transition duration-300 ease-in-out focus:outline-none md:w-12"
-                                                    onClick={() => incrementQuantity(item.id)}
-
-                                                >
-                                                    +
-                                                </button>
-                                                <span class="duration-250 text-heading flex h-full w-12  flex-shrink-0 cursor-default items-center justify-center text-base font-semibold transition-colors ease-in-out  md:w-20 xl:w-24">
-                                                    1
-                                                </span>
-                                                <button onClick={() => decrementQuantity(item.id)}
-                                                    disabled={item.quantity <= 1} class="text-heading cursor-pointer hover:bg-heading flex h-full w-10 flex-shrink-0 items-center justify-center border-s border-gray-300 transition duration-300 ease-in-out focus:outline-none md:w-12">
-                                                    -
-                                                </button>
-                                            </div>
-
-                                        </div>
-                                        <div className="flex items-center max-[500px]:justify-center md:justify-end max-md:mt-3 h-full">
-                                            <p className="font-bold text-lg leading-8 text-gray-600 text-center transition-all duration-300 group-hover:text-teal-600">${(item.price * item.quantity).toFixed(2)}</p>
-                                        </div>
-                                        <div className="cursor-pointer py-2" onClick={() => removeFromCart(item.id)}>
-                                            <AiOutlineDelete className="text-gray-500  hover:text-red-500" />
-                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                    {state.cartItems.map(item => (
+                                        <div key={item.id} className="flex flex-col min-[500px]:flex-row min-[500px]:items-center gap-5 py-6  border-b border-gray-200 group">
+                                            <div className="w-full md:max-w-[126px]">
+                                                <img src={item.image} alt={item.name} className="mx-auto" />
+                                            </div>
+                                            <div className="grid grid-cols-1 md:grid-cols-4 w-full">
+                                                <div className="md:col-span-2">
+                                                    <div className="flex flex-col max-[500px]:items-center gap-3">
+                                                        <h6 className="font-semibold text-base leading-7 text-black">{item.title}</h6>
+                                                        <h6 className="font-normal text-base leading-7 text-gray-500">{item.category}</h6>
+                                                        <h6 className="font-medium text-base leading-7 text-gray-600 transition-all duration-300 group-hover:text-teal-600">${item.price.toFixed(2)}</h6>
+                                                    </div>
+                                                </div>
+                                                <div class=" flex items-center max-[500px]:justify-center h-full max-md:mt-3">
+                                                    <div class="group flex h-11 flex-shrink-0 items-center justify-between overflow-hidden rounded-md border border-gray-300 md:h-12">
+                                                        <button
+                                                            class="text-heading hover:bg-heading flex cursor-pointer h-full w-10 flex-shrink-0 items-center justify-center border-e border-gray-300 transition duration-300 ease-in-out focus:outline-none md:w-12"
+                                                            onClick={() => incrementQuantity(item.id)}
 
-                            <div class="flex items-center justify-end mt-8">
+                                                        >
+                                                            +
+                                                        </button>
+                                                        <span class="duration-250 text-heading flex h-full w-12  flex-shrink-0 cursor-default items-center justify-center text-base font-semibold transition-colors ease-in-out  md:w-20 xl:w-24">
+                                                            1
+                                                        </span>
+                                                        <button onClick={() => decrementQuantity(item.id)}
+                                                            disabled={item.quantity <= 1} class="text-heading cursor-pointer hover:bg-heading flex h-full w-10 flex-shrink-0 items-center justify-center border-s border-gray-300 transition duration-300 ease-in-out focus:outline-none md:w-12">
+                                                            -
+                                                        </button>
+                                                    </div>
+
+                                                </div>
+                                                <div className="flex items-center max-[500px]:justify-center md:justify-end max-md:mt-3 h-full">
+                                                    <p className="font-bold text-lg leading-8 text-gray-600 text-center transition-all duration-300 group-hover:text-teal-600">${(item.price * item.quantity).toFixed(2)}</p>
+                                                </div>
+                                                <div className="cursor-pointer py-2" onClick={() => removeFromCart(item.id)}>
+                                                    <AiOutlineDelete className="text-gray-500  hover:text-red-500" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </>
+                            )} <div class="flex items-center justify-end mt-8">
                                 <button
                                     class="flex items-center px-5 py-3 rounded-full gap-2 border-none outline-0 group font-semibold text-md leading-8 text-teal-600 shadow-sm shadow-transparent transition-all duration-500 hover:text-teal-700">
                                     Add Coupon Code
