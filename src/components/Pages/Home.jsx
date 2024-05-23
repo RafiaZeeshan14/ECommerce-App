@@ -57,7 +57,6 @@ const Home = () => {
         <NewsLetter />
         <br /><br />
         <Footer />
-
       </div>
     </div>
   )

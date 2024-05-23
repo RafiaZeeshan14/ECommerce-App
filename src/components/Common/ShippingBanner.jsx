@@ -3,7 +3,7 @@ import React from 'react'
 const ShippingBanner = () => {
     return (
         <div class="poppins-medium">
-            <div class="flex flex-col space-y-4 md:space-y-0 py-20 md:flex-row md:py-24">
+            <div class="flex flex-col space-y-8 md:space-y-0 py-20 md:flex-row md:py-24">
 
                 <div class="mx-auto flex w-4/5 items-start justify-start pb-3 last:border-r-0 sm:w-1/2 md:w-2/5 md:flex-col md:items-center md:justify-center md:border-r-2 md:border-primary-lighter md:pb-0 md:text-center lg:mx-0 lg:w-1/3 lg:flex-row lg:text-left">
                     <div>

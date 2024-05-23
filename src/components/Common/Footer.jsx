@@ -173,24 +173,10 @@ const Footer = () => {
             <li>
               <a class="text-gray-700 transition hover:text-gray-700/75" href="#"> Support </a>
             </li>
-
             <li>
-              <a
-                class="group flex  gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-                href="#"
-              >
-                <span class="text-gray-700 transition group-hover:text-gray-700/75">
-                  Live Chat
-                </span>
-
-                <span class="relative flex h-2 w-2">
-                  <span
-                    class="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-75"
-                  ></span>
-                  <span class="relative inline-flex size-2 rounded-full bg-teal-500"></span>
-                </span>
-              </a>
+              <a class="text-gray-700 transition hover:text-gray-700/75" href="#"> Live Chat </a>
             </li>
+           
           </ul>
         </div>
 

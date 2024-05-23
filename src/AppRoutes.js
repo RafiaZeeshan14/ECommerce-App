@@ -8,6 +8,7 @@ import BestSeller from './components/ProductsPages/BestSeller'
 import MenCollection from './components/ProductsPages/MenCollection'
 import WomenCollection from './components/ProductsPages/WomenCollection'
 import ProductOverview from './components/ProductsPages/ProductOverview'
+import Contact from './components/Pages/Contact'
 
 
 const AppRoutes = () => {
@@ -24,6 +25,7 @@ const AppRoutes = () => {
         <Route path='/bestseller' element={<BestSeller/>}/>
         <Route path='/mencollection' element={<MenCollection/>}/>
         <Route path='/womencollection' element={<WomenCollection/>}/>
+        <Route path='/contact' element={<Contact/>}/>
       </Routes>
     
     </div>

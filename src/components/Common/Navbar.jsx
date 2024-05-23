@@ -60,7 +60,7 @@ const Navbar = ({backgroundColor}) => {
                 {/* *************** Side-Bar Code  ****************/}
                 {isSidebarOpen && (
                     <nav
-                        class="bg-white shadow-lg z-10 h-screen fixed top-0 left-0 w-[280px] py-6 px-6 font-[sans-serif] flex flex-col overflow-auto">
+                        class="bg-white shadow-lg z-10 h-screen fixed top-0 left-0 w-[280px] py-6 px-6 poppins-medium flex flex-col overflow-auto">
                         <div class="flex flex-wrap items-center cursor-pointer">
                             {/* *************** Close-Btn  ****************/}
                             <button className="absolute top-3 right-3" onClick={closeSidebar}>
@@ -81,13 +81,13 @@ const Navbar = ({backgroundColor}) => {
                         {/* *************** Side-Bar Links ****************/}
                         <ul class="space-y-4 pl-3 flex-1 mt-10">
                             <li>
-                                <Link href="" class="text-[#09998b] font-semibold text-sm flex items-center rounded-md left-0 hover:left-2 relative transition-all duration-300">
+                                <Link  to={'/mencollection'} class="text-[#09998b] font-semibold text-sm flex items-center rounded-md left-0 hover:left-2 relative transition-all duration-300">
                                     <span>Men</span>
                                 </Link>
                             </li>
                             <hr />
                             <li>
-                                <Link class="text-[#09998b] font-semibold text-sm flex items-center rounded-md left-0 hover:left-2 relative transition-all duration-300">
+                                <Link  to={'/womencollection'} class="text-[#09998b] font-semibold text-sm flex items-center rounded-md left-0 hover:left-2 relative transition-all duration-300">
                                     <span>Women</span>
                                 </Link>
                             </li>
@@ -120,7 +120,7 @@ const Navbar = ({backgroundColor}) => {
                             </li>
                             <hr />
                             <li>
-                                <Link class="text-[#09998b] font-semibold text-sm flex items-center rounded-md left-0 hover:left-2 relative transition-all duration-300">
+                                <Link to={"/contact"} class="text-[#09998b] font-semibold text-sm flex items-center rounded-md left-0 hover:left-2 relative transition-all duration-300">
 
                                     <span>Contact Us</span>
                                 </Link>

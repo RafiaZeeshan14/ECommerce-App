@@ -148,7 +148,7 @@ const WomensData=[
     id: 21,
     title: "Ayla Mid Rise Skinny",
     price: 109.95,
-    image: "WomensData/womjeans1.webp",
+    image: "/WomensData/womjeans1.webp",
     category:"Women's Collection"
   }, {
     id: 22,
@@ -167,7 +167,7 @@ const WomensData=[
     id: 24,
     title: "Layla High-Rise Jegging",
     price: 109.95,
-    image: "WomensData/womjeans4.webp",
+    image: "/WomensData/womjeans4.webp",
     category:"/Women's Collection"
   },
    {
