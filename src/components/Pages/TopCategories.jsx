@@ -10,7 +10,7 @@ const TopCategories = () => {
                 <div class="relative h-[400px] w-[300px] rounded-full overflow-hidden animate-fade-up">
                     <div class="absolute inset-0 bg-black opacity-10 cursor-pointer transition-opacity duration-300 hover:opacity-15 hover:scale-105"></div>
                     <img
-                        src="/womfashion.jpg"
+                        src="/HomeImg/womfashion.jpg"
                         alt="Women Fashion"
                         class="z-0 h-full w-full object-cover"
                     />
@@ -22,7 +22,7 @@ const TopCategories = () => {
                 <div class="relative h-[400px] w-[300px] rounded-full overflow-hidden animate-fade-up">
                     <div class="absolute inset-0 bg-black opacity-10 cursor-pointer transition-opacity duration-300 hover:opacity-15 hover:scale-105"></div>
                     <img
-                        src="/men.jpg"
+                        src="/HomeImg/men.jpg"
                         alt="Women Fashion"
                         class="z-0 h-full w-full object-cover"
                     />
@@ -33,7 +33,7 @@ const TopCategories = () => {
                 <div class="relative h-[400px] w-[300px] rounded-full overflow-hidden animate-fade-up">
                     <div class="absolute inset-0 bg-black opacity-10 cursor-pointer transition-opacity duration-300 hover:opacity-15 hover:scale-105"></div>
                     <img
-                        src="/both.jpeg"
+                        src="/HomeImg/both.jpeg"
                         alt="Women Fashion"
                         class="z-0 h-full w-full object-cover p-1"
                     />

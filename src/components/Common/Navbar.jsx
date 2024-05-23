@@ -67,7 +67,7 @@ const Navbar = ({backgroundColor}) => {
                                 <MdClose style={{ width: '1.5em', height: '1.5em' }} className='fill-[#777474f3] ' />
                             </button>
                             {/* *************** Logo IN sidebar  ****************/}
-                            <img src="/logo-regular.png" alt="logo" class='w-[140px] sm:' />
+                            <img src="/HomeImg/logo-regular.png" alt="logo" class='w-[140px] sm:' />
                         </div>
                         {/* *************** Search-Box  ****************/}
                         <div class="relative bg-gray-100 px-4 py-3 rounded-md mt-6">
@@ -137,7 +137,7 @@ const Navbar = ({backgroundColor}) => {
                 )}
                 {/* ***************** Brand-Logo ************* */}
                 <a href="/" className="shrink-0  md:text-center">
-                    <img src="/logo-regular.png" alt="logo" className='ml-[65%] md:w-[170px] w-24 sm:w-36 sm:ml-[70%] lg:ml-0 ' />
+                    <img src="/HomeImg/logo-regular.png" alt="logo" className='ml-[65%] md:w-[170px] w-24 sm:w-36 sm:ml-[70%] lg:ml-0 ' />
                 </a>
 
 

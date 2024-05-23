@@ -27,7 +27,7 @@ const HeroSection = () => {
               <div className="overflow-hidden  relative h-screen">
                 <div className="absolute inset-0 bg-black opacity-500"></div>
                 <video
-                  src="/herovideo.mp4"
+                  src="/HomeImg/herovideo.mp4"
                   autoPlay
                   loop
                   muted

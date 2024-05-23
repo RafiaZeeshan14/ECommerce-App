@@ -19,7 +19,7 @@ const Information = () => {
             <li>
               <a href="#" class="group relative block">
                 <img
-                  src="Images/boy.jpg"
+                  src="/HomeImg/boy.jpg"
                   alt=""
                   class="aspect-square w-full object-cover transition duration-500 group-hover:opacity-90"
                 />

@@ -5,7 +5,7 @@ const Banner = () => {
         <div>
         
             <video
-                src="/bannervid.mp4"
+                src="/HomeImg/bannervid.mp4"
                 autoPlay
                 loop
                 muted
