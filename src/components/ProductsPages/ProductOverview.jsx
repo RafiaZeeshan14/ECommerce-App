@@ -9,10 +9,6 @@ import Footer from '../Common/Footer';
 const ProductOverview = () => {
   const { id } = useParams();
   console.log("🚀 ~ ProductOverview ~ id:", id)
-  // const { sellerProducts } = useProducts();
-  // console.log("🚀 ~ ProductOverview ~ sellerProducts:", sellerProducts)
-  // const newArr = sellerProducts.filter((item) => item.id == id);
-  // console.log("🚀 ~ ProductOverview ~ newArr:", newArr)
 
   const { sellerProducts, menProducts, womenProducts } = useProducts();
 

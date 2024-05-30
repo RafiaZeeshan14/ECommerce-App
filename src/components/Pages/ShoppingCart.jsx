@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Navbar from '../Common/Navbar'
 import { CartContext } from '../../context/CartContext';
 import { AiOutlineDelete } from 'react-icons/ai';
@@ -6,16 +6,22 @@ import Footer from '../Common/Footer';
 
 const ShoppingCart = () => {
     const { state, dispatch } = useContext(CartContext);
-    const incrementQuantity = (itemId) => {
-        dispatch({ type: 'INCREMENT_QUANTITY', payload: itemId });
-    };
 
+    const incrementQuantity = (itemId) => {
+      dispatch({ type: 'INCREMENT_QUANTITY', payload: itemId });
+    };
+  
     const decrementQuantity = (itemId) => {
-        dispatch({ type: 'DECREMENT_QUANTITY', payload: itemId });
+      dispatch({ type: 'DECREMENT_QUANTITY', payload: itemId });
     };
+  
     const removeFromCart = (itemId) => {
-        dispatch({ type: 'REMOVE_FROM_CART', payload: itemId });
+      dispatch({ type: 'REMOVE_FROM_CART', payload: itemId });
     };
+  
+    useEffect(() => {
+      window.scrollTo(0, 0); // Scroll to the top of the page when the component mounts
+    }, []);
     return (
         <div>
             <Navbar backgroundColor="#eeeeee" />
@@ -73,7 +79,7 @@ const ShoppingCart = () => {
                                                             +
                                                         </button>
                                                         <span class="duration-250 text-heading flex h-full w-12  flex-shrink-0 cursor-default items-center justify-center text-base font-semibold transition-colors ease-in-out  md:w-20 xl:w-24">
-                                                            1
+                                                            {item.quantity}
                                                         </span>
                                                         <button onClick={() => decrementQuantity(item.id)}
                                                             disabled={item.quantity <= 1} class="text-heading cursor-pointer hover:bg-heading flex h-full w-10 flex-shrink-0 items-center justify-center border-s border-gray-300 transition duration-300 ease-in-out focus:outline-none md:w-12">

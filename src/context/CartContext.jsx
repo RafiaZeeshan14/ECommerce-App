@@ -1,12 +1,10 @@
 import React, { createContext, useContext, useReducer } from 'react';
 
 // Define initial state
-
 const initialState = {
-    cartItems: [],
-    totalQuantity: 0,
-  };
-  
+  cartItems: [],
+  totalQuantity: 0,
+};
 
 // Create context
 export const CartContext = createContext();
@@ -61,12 +59,19 @@ const cartReducer = (state, action) => {
         cartItems: decrementedCartItems,
         totalQuantity: state.totalQuantity - 1,
       };
+    case 'REMOVE_FROM_CART':
+      const filteredCartItems = state.cartItems.filter(item => item.id !== action.payload);
+      const removedItem = state.cartItems.find(item => item.id === action.payload);
+      return {
+        ...state,
+        cartItems: filteredCartItems,
+        totalQuantity: state.totalQuantity - (removedItem ? removedItem.quantity : 0),
+      };
     default:
       return state;
   }
 };
 
-  
 // Custom hook to use the cart context
 export const useCart = () => {
   return useContext(CartContext);
