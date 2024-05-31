@@ -11,6 +11,7 @@ import ProductOverview from './components/ProductsPages/ProductOverview'
 import Contact from './components/Pages/Contact'
 import HelpCenter from './components/Pages/HelpCenter'
 import About from './components/Pages/About'
+import MWCollection from './components/ProductsPages/MWCollection'
 
 
 const AppRoutes = () => {
@@ -30,6 +31,7 @@ const AppRoutes = () => {
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/helpcenter' element={<HelpCenter/>}/>
         <Route path='/about' element={<About/>}/>
+        <Route path='/wmcollection' element={<MWCollection/>}/>
       </Routes>
     
     </div>

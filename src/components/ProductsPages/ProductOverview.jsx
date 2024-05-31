@@ -10,10 +10,10 @@ const ProductOverview = () => {
   const { id } = useParams();
   console.log("🚀 ~ ProductOverview ~ id:", id)
 
-  const { sellerProducts, menProducts, womenProducts } = useProducts();
+  const { sellerProducts, menProducts, womenProducts , MWData} = useProducts();
 
   // Combine all products into a single array
-  const allProducts = [...sellerProducts, ...menProducts, ...womenProducts];
+  const allProducts = [...sellerProducts, ...menProducts, ...womenProducts, ...MWData];
 
   // Filter the product based on the id
   const product = allProducts.filter((item) => item.id == id);

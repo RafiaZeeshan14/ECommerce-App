@@ -196,10 +196,57 @@ const WomensData=[
     category:"Women's Collection"
   },
 ];
+const MWData =[
+  {
+    id: 29,
+    title: "Fit Short Sleeve T-Shirt",
+    price: 109.95,
+    image: "/MWData/MW1.jpg",
+    category:"Men & Women Collection"
+  },
+  {
+    id: 30,
+    title: "Fit Short Sleeve T-Shirt",
+    price: 109.95,
+    image: "/MWData/MW2.jpg",
+    category:"Men & Women Collection"
+  },
+  {
+    id: 31,
+    title: "Fit Short Sleeve T-Shirt",
+    price: 109.95,
+    image: "/MWData/MW3.png",
+    category:"Men & Women Collection"
+  },
+  {
+    id: 32,
+    title: "Fit Short Sleeve T-Shirt",
+    price: 109.95,
+    image: "/MWData/MW4.png",
+    category:"Men & Women Collection"
+  },
+  {
+    id: 33,
+    title: "Fit Short Sleeve T-Shirt",
+    price: 109.95,
+    image: "/MWData/MW5.jpg",
+    category:"Men & Women Collection"
+  },
+  {
+    id: 33,
+    title: "Fit Short Sleeve T-Shirt",
+    price: 109.95,
+    image: "/MWData/MW6.jpeg",
+    category:"Men & Women Collection"
+  },
+
+]
 const AllData = {
   sellerProducts: SellerData,
   menProducts: MensData,
   womenProducts: WomensData,
+  MWData: MWData,
+
 };
 
 export default AllData;
