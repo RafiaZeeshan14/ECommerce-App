@@ -10,6 +10,7 @@ import WomenCollection from './components/ProductsPages/WomenCollection'
 import ProductOverview from './components/ProductsPages/ProductOverview'
 import Contact from './components/Pages/Contact'
 import HelpCenter from './components/Pages/HelpCenter'
+import About from './components/Pages/About'
 
 
 const AppRoutes = () => {
@@ -28,6 +29,7 @@ const AppRoutes = () => {
         <Route path='/womencollection' element={<WomenCollection/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/helpcenter' element={<HelpCenter/>}/>
+        <Route path='/about' element={<About/>}/>
       </Routes>
     
     </div>

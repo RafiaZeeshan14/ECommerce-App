@@ -98,7 +98,7 @@ const Navbar = ({backgroundColor}) => {
                                 </Link>
                             </li><hr />
                             <li>
-                                <Link class="text-[#09998b] font-semibold text-sm flex items-center rounded-md left-0 hover:left-2 relative transition-all duration-300">
+                                <Link to={"/about"} class="text-[#09998b] font-semibold text-sm flex items-center rounded-md left-0 hover:left-2 relative transition-all duration-300">
                                     <span>LookBook</span>
                                 </Link>
                             </li>
