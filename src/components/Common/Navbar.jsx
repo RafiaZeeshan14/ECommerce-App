@@ -5,7 +5,7 @@ import { MdClose, MdFilterList } from 'react-icons/md';
 import { CartContext } from '../../context/CartContext';
 import { BiLinkAlt } from 'react-icons/bi';
 
-const Navbar = ({backgroundColor}) => {
+const Navbar = ({ backgroundColor }) => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -81,19 +81,19 @@ const Navbar = ({backgroundColor}) => {
                         {/* *************** Side-Bar Links ****************/}
                         <ul class="space-y-4 pl-3 flex-1 mt-10">
                             <li>
-                                <Link  to={'/mencollection'} class="text-[#09998b] font-semibold text-sm flex items-center rounded-md left-0 hover:left-2 relative transition-all duration-300">
+                                <Link to={'/mencollection'} class="text-[#09998b] font-semibold text-sm flex items-center rounded-md left-0 hover:left-2 relative transition-all duration-300">
                                     <span>Men</span>
                                 </Link>
                             </li>
                             <hr />
                             <li>
-                                <Link  to={'/womencollection'} class="text-[#09998b] font-semibold text-sm flex items-center rounded-md left-0 hover:left-2 relative transition-all duration-300">
+                                <Link to={'/womencollection'} class="text-[#09998b] font-semibold text-sm flex items-center rounded-md left-0 hover:left-2 relative transition-all duration-300">
                                     <span>Women</span>
                                 </Link>
                             </li>
                             <hr />
                             <li>
-                                <Link class="text-[#09998b] font-semibold text-sm flex items-center rounded-md left-0 hover:left-2 relative transition-all duration-300">
+                                <Link to={"/mwdata"} class="text-[#09998b] font-semibold text-sm flex items-center rounded-md left-0 hover:left-2 relative transition-all duration-300">
                                     <span>Men & Women</span>
                                 </Link>
                             </li><hr />
@@ -179,9 +179,11 @@ const Navbar = ({backgroundColor}) => {
                                 <div class="bg-slate-100 rounded-md z-20 shadow-md py-6 px-6 sm:min-w-[320px] max-sm:min-w-[250px] absolute right-0 top-10">
                                     <h6 class="text-[15px] text-black font-semibold">Welcome</h6>
                                     <p class="text-sm text-gray-500 mt-1">To access account and manage orders</p>
-                                    <button type='button'
-                                        class="bg-transparent border-2 border-gray-300 hover:border-black rounded px-4 py-2.5 mt-4 text-sm text-black font-semibold">LOGIN
-                                        / SIGNUP</button>
+                                    <Link to={'/login'}>
+                                        <button type='button'
+                                            class="bg-transparent border-2 border-gray-300 hover:border-black rounded px-4 py-2.5 mt-4 text-sm text-black font-semibold">LOGIN
+                                            / SIGNUP</button>
+                                    </Link>
                                     <hr class="border-b-0 my-4" />
                                     <ul class="space-y-1.5">
                                         <li><a href='javascript:void(0)' class="text-sm text-gray-500 hover:text-black">Order</a></li>

@@ -32,6 +32,7 @@ const AppRoutes = () => {
         <Route path='/helpcenter' element={<HelpCenter/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/wmcollection' element={<MWCollection/>}/>
+        <Route path='/mwdata' element={<MWCollection/>}/>
       </Routes>
     
     </div>
