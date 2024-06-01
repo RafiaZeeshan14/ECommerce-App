@@ -4,6 +4,7 @@ import React, { createContext, useContext, useReducer } from 'react';
 const initialState = {
   cartItems: [],
   totalQuantity: 0,
+  wishlistItems: [],
 };
 
 // Create context
@@ -67,9 +68,23 @@ const cartReducer = (state, action) => {
         cartItems: filteredCartItems,
         totalQuantity: state.totalQuantity - (removedItem ? removedItem.quantity : 0),
       };
-    default:
+      case 'ADD_TO_WISHLIST':
+      if (!state.wishlistItems.find(item => item.id === action.payload.id)) {
+        return {
+          ...state,
+          wishlistItems: [...state.wishlistItems, action.payload],
+        };
+      }
       return state;
-  }
+      case 'REMOVE_FROM_WISHLIST':
+        const filteredWishlistItems = state.wishlistItems.filter(item => item.id !== action.payload);
+        return {
+          ...state,
+          wishlistItems: filteredWishlistItems,
+        };
+      default:
+        return state;
+    } 
 };
 
 // Custom hook to use the cart context
