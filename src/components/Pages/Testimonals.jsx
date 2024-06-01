@@ -171,7 +171,7 @@ const Testimonals = () => {
     const [currentTestimonial, setCurrentTestimonial] = useState(0)
 
     return (
-        <section className="py-14">
+        <section className="py-14 pb-[90px]">
             <div className="max-w-screen-xl mx-auto px-4 md:px-8">
                 <div className="max-w-3xl mx-auto text-center">
                     <h3 className="text-[#54aaa1] font-semibold pb-6">What people are saying</h3>

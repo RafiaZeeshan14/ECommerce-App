@@ -52,7 +52,7 @@ const About = () => {
   return (
     <div className='poppins-medium'>
       <Navbar backgroundColor="#eeeeee" />
-      <br/>
+      <br />
       <section className="overflow-hidden pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] bg-white dark:bg-dark">
         <div className="container mx-auto">
           <div className="flex flex-wrap items-center justify-between -mx-4">
@@ -685,15 +685,11 @@ const About = () => {
           </div>
         </div>
       </section>
-      <br />
       <Features />
-      <br /><br /><br /><br /><br /><br />
       <Stats />
-      <br /><br />
-     <Testimonals />
-      <br /><br /><br />
+      <Testimonals />
       <Team />
-      <Footer/>
+      <Footer />
     </div>
   );
 };
