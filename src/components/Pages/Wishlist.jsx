@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { AiOutlineDelete } from 'react-icons/ai';
+import { AiOutlineDelete, AiOutlineShoppingCart } from 'react-icons/ai';
 import Navbar from '../Common/Navbar';
 import { useCart } from '../../context/CartContext';
-import Footer from '../Common/Footer'
+import Footer from '../Common/Footer';
 
 const Wishlist = () => {
     const { state, dispatch } = useCart();
@@ -15,6 +15,7 @@ const Wishlist = () => {
         dispatch({ type: 'ADD_TO_CART', payload: product });
         setShowToast(true);
     };
+
     useEffect(() => {
         let timer;
         if (showToast) {
@@ -22,7 +23,7 @@ const Wishlist = () => {
             timer = setTimeout(() => {
                 setShowToast(false);
                 setToastStyle({ visibility: 'hidden', opacity: 0 });
-            }, 3000); // 2 seconds
+            }, 3000); // 3 seconds
         }
 
         return () => clearTimeout(timer);
@@ -52,19 +53,25 @@ const Wishlist = () => {
                             {wishlistItems.map((item) => (
                                 <tr key={item.id} className="border-t">
                                     <td className="p-2 flex items-center">
-                                        <img src={item.image} alt={item.name} className="w-16 h-16 sm:w-18 sm:h-20  rounded mr-4" />
-                                        <div>
-                                            <div className="font-semibold text-xs sm:text-sm">{item.title}</div>
+                                        <img src={item.image} alt={item.name} className="w-16 h-16 sm:w-18 sm:h-20 rounded mr-4" />
+                                        <div  className="w-50 ">
+                                            <div className="font-semibold text-xs sm:text-sm ">{item.title}</div>
                                             <div className="text-xs text-gray-600">{item.category}</div>
                                         </div>
                                     </td>
                                     <td className="p-2 text-xs sm:text-sm">{item.price}</td>
                                     <td className="p-2">
                                         <button
-                                            className="px-4 py-2 bg-teal-500 hover:bg-teal-600 text-white rounded text-xs md:text-sm"
+                                            className="hidden md:inline px-4 py-2 bg-teal-500 hover:bg-teal-600 text-white rounded text-xs md:text-sm"
                                             onClick={() => handleAddToCart(item)}
                                         >
                                             Add to Cart
+                                        </button>
+                                        <button
+                                            onClick={() => handleAddToCart(item)}
+                                            className="md:hidden text-teal-500 hover:text-teal-700"
+                                        >
+                                            <AiOutlineShoppingCart className="w-5 h-5" />
                                         </button>
                                     </td>
                                     <td className="p-2">
@@ -86,14 +93,13 @@ const Wishlist = () => {
                                         <span className="sr-only">Check icon</span>
                                     </div>
                                     <div className="ms-3 text-sm font-normal">Item Added to Cart.</div>
-                                    <button type="button" className="ms-auto -mx-1.5 -my-1.5  text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" onClick={() => setShowToast(false)} aria-label="Close">
+                                    <button type="button" className="ms-auto -mx-1.5 -my-1.5 text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" onClick={() => setShowToast(false)} aria-label="Close">
                                         <span className="sr-only">Close</span>
                                         <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                                         </svg>
                                     </button>
                                 </div>
-
                             )}
                         </tbody>
                     </table>
@@ -106,6 +112,7 @@ const Wishlist = () => {
 };
 
 export default Wishlist;
+
 
 
 
