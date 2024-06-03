@@ -42,10 +42,10 @@ const Wishlist = () => {
                     <table className="w-full">
                         <thead>
                             <tr className="text-left bg-gray-200">
-                                <th className="p-2">Product</th>
-                                <th className="p-2">Price</th>
-                                <th className="p-2">Action</th>
-                                <th className="p-2">Remove</th>
+                                <th className="p-2 text-xs sm:text-sm">Product</th>
+                                <th className="p-2 text-xs sm:text-sm">Price</th>
+                                <th className="p-2 text-xs sm:text-sm">Action</th>
+                                <th className="p-2 text-xs sm:text-sm">Remove</th>
                             </tr>
                         </thead>
                         <tbody>
