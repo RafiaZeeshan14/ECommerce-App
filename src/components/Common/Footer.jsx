@@ -6,7 +6,7 @@ const Footer = () => {
     
 
 <footer class="bg-[#eeeeee] poppins-medium ">
-  <div class="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-28">
+  <div class="mx-auto max-w-screen-xl px-4 pb-4 pt-16 sm:px-6 lg:px-8 ">
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
       <div>
         <div class="flex justify-center text-teal-600 sm:justify-start">
@@ -162,7 +162,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div class="text-center sm:text-left">
+        {/* <div class="text-center sm:text-left">
           <p class="text-lg font-medium text-gray-900">Helpful Links</p>
 
           <ul class="mt-8 space-y-4 text-sm">
@@ -178,7 +178,7 @@ const Footer = () => {
             </li>
            
           </ul>
-        </div>
+        </div> */}
 
         <div class="text-center sm:text-left">
           <p class="text-lg font-medium text-gray-900">Contact Us</p>
@@ -189,9 +189,9 @@ const Footer = () => {
                 class="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
                 href="#"
               >
-                <svg
+                <svg 
                   xmlns="http://www.w3.org/2000/svg"
-                  class="size-5 shrink-0 text-gray-900"
+                  class="size-5 shrink-0 text-gray-900 hidden sm:block "
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -203,8 +203,8 @@ const Footer = () => {
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
-
                 <span class="flex-1 text-gray-700">john@doe.com</span>
+
               </a>
             </li>
 
@@ -215,7 +215,7 @@ const Footer = () => {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="size-5 shrink-0 text-gray-900"
+                  class="size-5 shrink-0 text-gray-900 hidden sm:block"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -237,7 +237,7 @@ const Footer = () => {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="size-5 shrink-0 text-gray-900"
+                class="size-5 shrink-0 text-gray-900 hidden sm:block"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -286,7 +286,7 @@ const Footer = () => {
           </a>
         </p>
 
-        <p class="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">&copy; 2022 T-Shirt Store</p>
+        <p class="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">&copy; 2024 T-Shirt Store</p>
       </div>
     </div>
   </div>
