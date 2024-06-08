@@ -2,7 +2,7 @@
 
 This is a React-based eCommerce website for selling T-shirts. The website allows users to browse through a collection of T-shirts, add them to their cart, and wishlist.
 
-# T-Shirt eCommerce Website
+## Live Demo
 (https://ecom-tshirt-store.vercel.app/)
 
 # Getting Started with Create React App
