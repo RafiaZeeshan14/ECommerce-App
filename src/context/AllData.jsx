@@ -201,35 +201,35 @@ const MWData =[
     id: 29,
     title: "Fit Short Sleeve T-Shirt",
     price: 109.95,
-    image: "/MWData/MW1.jpg",
+    image: "/MWData/MW1.jpeg",
     category:"Men & Women Collection"
   },
   {
     id: 30,
     title: "Fit Short Sleeve T-Shirt",
     price: 109.95,
-    image: "/MWData/MW2.jpg",
+    image: "/MWData/MW2.jpeg",
     category:"Men & Women Collection"
   },
   {
     id: 31,
     title: "Fit Short Sleeve T-Shirt",
     price: 109.95,
-    image: "/MWData/MW3.png",
+    image: "/MWData/MW3.jpeg",
     category:"Men & Women Collection"
   },
   {
     id: 32,
     title: "Fit Short Sleeve T-Shirt",
     price: 109.95,
-    image: "/MWData/MW4.png",
+    image: "/MWData/MW4.jpeg",
     category:"Men & Women Collection"
   },
   {
     id: 33,
     title: "Fit Short Sleeve T-Shirt",
     price: 109.95,
-    image: "/MWData/MW5.jpg",
+    image: "/MWData/MW5.jpeg",
     category:"Men & Women Collection"
   },
   {
@@ -237,6 +237,13 @@ const MWData =[
     title: "Fit Short Sleeve T-Shirt",
     price: 109.95,
     image: "/MWData/MW6.jpeg",
+    category:"Men & Women Collection"
+  },
+  {
+    id: 34,
+    title: "Fit Short Sleeve T-Shirt",
+    price: 109.95,
+    image: "/MWData/MW7.jpeg",
     category:"Men & Women Collection"
   },
 
